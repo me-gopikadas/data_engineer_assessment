@@ -104,17 +104,11 @@ During execution, the ETL engine:
 
 STEP 1
 : All dependencies are listed in src/requirements.txt
- : Install them using: pip install -r src/requirements.txt
+ : Install them using: ## **pip install -r src/requirements.txt**
 
 STEP 2
-: To run the complete ETL pipeline: python -m src.main
+: To run the complete ETL pipeline: ## **python -m src.main**
 
-#   Database Connection
-MySQL connection is created in load.py
-
-connection_url = f"mysql+pymysql://{user}:{password}@{host}/{database}"
-
-self.engine = create_engine(connection_url)
 
 
 
