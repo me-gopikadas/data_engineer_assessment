@@ -10,6 +10,7 @@ from src.transform import (
 )
 from src.load import MySQLLoader
 
+
 RAW_JSON = "./data/fake_property_data_new.json"
 CLEAN_NDJSON = "./data/clean_data_new.ndjson"
 
@@ -48,7 +49,7 @@ loader = MySQLLoader(
     host="localhost:3306",
     database="home_db"
 )
-
+loader.run_sql_script("./sql/create_tables.sql")
 # Load main table
 loader.load_properties(props)
 

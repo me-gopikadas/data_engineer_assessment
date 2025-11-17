@@ -1,8 +1,8 @@
 -- properties (main)
 CREATE TABLE IF NOT EXISTS properties (
   property_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-  external_id VARCHAR(512) UNIQUE,   -- Property_Title used as natural key
-  property_title VARCHAR(512),
+  external_id VARCHAR(512) UNIQUE,
+  property_title VARCHAR(512),          -- Property_Title used as natural key
   address VARCHAR(512),
   market VARCHAR(128),
   flood VARCHAR(64),

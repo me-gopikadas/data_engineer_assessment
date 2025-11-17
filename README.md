@@ -92,14 +92,21 @@ This project contains four main Python scripts inside the src/ folder:
 - load.py → Loads data into MySQL using SQLAlchemy
 - main.py → Runs the entire ETL end-to-end
 
+Before loading any data, the system automatically initializes the database schema by executing the `create_tables.sql` file.
+
+During execution, the ETL engine:
+
+1. Establishes a connection to the MySQL database using SQLAlchemy  
+2. Reads all SQL statements from `sql/create_tables.sql`  
+3. Creates every required table using `CREATE TABLE IF NOT EXISTS`  
+4. Ensures that the schema is ready before the loading phase begins  
+
+
 STEP 1
 : All dependencies are listed in src/requirements.txt
  : Install them using: pip install -r src/requirements.txt
 
 STEP 2
-: Execute sql/create_tables.sql script in MySQL
-
-STEP 3
 : To run the complete ETL pipeline: python -m src.main
 
 #   Database Connection

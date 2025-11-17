@@ -6,6 +6,19 @@ class MySQLLoader:
         connection_url = f"mysql+pymysql://{user}:{password}@{host}/{database}"
         self.engine = create_engine(connection_url)
 
+    def run_sql_script(self, script_path):
+        """Run SQL file (create tables, etc)"""
+        with open(script_path, "r") as file:
+            sql_commands = file.read()
+
+        with self.engine.connect() as conn:
+            for command in sql_commands.split(";"):
+                cmd = command.strip()
+                if cmd:
+                    conn.execute(text(cmd))
+        print("SQL script executed successfully!")
+
+
     def load_properties(self, props_df):
         """Load main properties table first"""
         props_df.to_sql("properties", self.engine, if_exists="append", index=False)
